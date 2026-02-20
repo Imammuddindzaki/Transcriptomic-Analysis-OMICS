@@ -224,6 +224,35 @@ Quantitative comparison of normalized enrichment scores confirms that adaptive i
 
 Understanding this immune imbalance may have important implications for immunomodulatory strategies aimed at restoring adaptive immune competence in critically ill patients.
 
+# References
+
+Adams, N. M., Grassmann, S., & Sun, J. C. (2020). Clonal expansion of innate and adaptive lymphocytes. Nature Reviews Immunology, 20(11), 694-707.
+
+Gaudino, S. J., & Kumar, P. (2019). Cross-talk between antigen presenting cells and T cells impacts intestinal homeostasis, bacterial infections, and tumorigenesis. Frontiers in immunology, 10, 360.
+
+Gerring, Z. F., Powell, J. E., Montgomery, G. W., & Nyholt, D. R. (2018). Genome-wide analysis of blood gene expression in migraine implicates immune-inflammatory pathways. Cephalalgia, 38(2), 292-303.
+
+Gül, A. (2018). Dynamics of inflammatory response in autoinflammatory disorders: autonomous and hyperinflammatory states. Frontiers in Immunology, 9, 2422.
+
+Huang, L., Yi, X., Yu, X., Wang, Y., Zhang, C., Qin, L., ... & Wang, D. (2021). High-throughput strategies for the discovery of anticancer drugs by targeting transcriptional reprogramming. Frontiers in Oncology, 11, 762023.
+
+Martin-Loeches, I., Reyes, L. F., & Rodriguez, A. (2025). Severe community-acquired pneumonia (sCAP): advances in management and future directions. Thorax, 80(8), 565-575.
+
+Martynova, E., Rizvanov, A., Urbanowicz, R. A., & Khaiboullina, S. (2022). Inflammasome contribution to the activation of Th1, Th2, and Th17 immune responses. Frontiers in microbiology, 13, 851835.
+
+Nakamori, Y., Park, E. J., & Shimaoka, M. (2021). Immune deregulation in sepsis and septic shock: reversing immune paralysis by targeting PD-1/PD-L1 pathway. Frontiers in immunology, 11, 624279.
+
+Natoli, G., & Ostuni, R. (2019). Adaptation and memory in immune responses. Nature immunology, 20(7), 783-792.
+
+Roe, K. (2022). NK‐cell exhaustion, B‐cell exhaustion and T‐cell exhaustion—the differences and similarities. Immunology, 166(2), 155-168.
+
+Schaefer, A. K., Melnyk, J. E., He, Z., Del Rosario, F., & Grimes, C. L. (2018). Pathogen-and microbial-associated molecular patterns (PAMPs/MAMPs) and the innate immune response in Crohn’s disease. In Immunity and inflammation in health and disease (pp. 175-187). Academic Press.
+
+Schuurman, A. R., Reijnders, T. D., van Engelen, T. S., Léopold, V., de Brabander, J., van Linge, C., ... & van der Poll, T. (2022). The host response in different aetiologies of community-acquired pneumonia. EBioMedicine, 81.
+
+Sierawska, O., Małkowska, P., Taskin, C., Hrynkiewicz, R., Mertowska, P., Grywalska, E., ... & Strużyna, J. (2022). Innate immune system response to burn damage—focus on cytokine alteration. International journal of molecular sciences, 23(2), 716.
+
+Vella, L. A., Herati, R. S., & Wherry, E. J. (2017). CD4+ T cell differentiation in chronic viral infections: the Tfh perspective. Trends in molecular medicine, 23(12), 1072-1087.
 
 
 
