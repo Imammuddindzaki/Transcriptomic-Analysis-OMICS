@@ -83,6 +83,7 @@ To characterize transcriptional differences between critically ill CAP and No_CA
 A total of 2,978 genes met the statistical significance threshold (adjusted p-value < 0.05). Applying a stringent fold-change cutoff (|log2FC| ≥ 1), 96 genes were identified as differentially expressed, comprising:
 -	54 upregulated genes
 -	42 downregulated genes
+
 The volcano plot (Figure 1) illustrates the distribution of differential expression, demonstrating a distinct subset of genes with large magnitude changes and strong statistical significance.
 Unsupervised visualization using UMAP (Figure 2) revealed partial separation between CAP and No_CAP groups, indicating coordinated but not globally segregated transcriptomic shifts. Boxplot and density analyses confirmed comparable expression distributions across samples (Supplementary Figure S1), supporting data quality and normalization adequacy.
 Heatmap visualization of the top 50 differentially expressed genes (Figure 3) demonstrated coherent clustering patterns, with CAP samples exhibiting coordinated expression changes distinct from No_CAP controls.
@@ -94,17 +95,19 @@ Upregulated genes were significantly enriched for innate immune processes, inclu
 -	Defense response to bacterium
 -	Cellular response to lipopolysaccharide
 -	Inflammatory response pathways
+
 These findings indicate activation of pathogen-recognition and antimicrobial defense programs in CAP patients.
 KEGG over-representation analysis of downregulated genes revealed enrichment in pathways associated with:
 -	Hematopoietic cell lineage
 -	Antigen processing and presentation
 -	T helper cell differentiation
+
 The enrichment of adaptive immune pathways among downregulated genes suggests potential suppression of antigen-specific immune programs in CAP.
 Over-representation analysis suggests a dual immune pattern: activation of innate antimicrobial programs alongside suppression of adaptive immune functions.
 
-![Figure 1. Volcano plot (CAP vs No_CAP)](Volcano Plot CAP.png)
-![Figure 2. UMAP projection of global transcriptome](UMAP Plot CAP.png)
-![Figure 3. Heatmap of top 50 DEGs](Heatmap CAP.png)
+![Figure 1. Volcano plot (CAP vs No_CAP)](Volcano_Plot_CAP.png)
+![Figure 2. UMAP projection of global transcriptome](UMAP_Plot_CAP.png)
+![Figure 3. Heatmap of top 50 DEGs](Heatmap_CAP.png)
 
 
 ## 3.3	Gene Set Enrichment Analysis Demonstrates Dominant Suppression of Adaptive Immune Pathways
