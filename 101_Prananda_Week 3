@@ -1,0 +1,124 @@
+# Systemic Suppression of Adaptive Immune Programs Dominates the Transcriptomic Landscape of Critically Ill Community-Acquired Pneumonia
+
+**Prananda Imammuddin Dzaki**
+
+---
+## Background
+Community-acquired pneumonia (CAP) is a leading cause of critical illness worldwide. Although early inflammation is well recognized, the role of adaptive immune dysregulation in severe CAP remains unclear. Understanding systemic immune reprogramming is essential to determine whether severity stems from hyperinflammation or broader immune dysfunction.
+## Methods
+Whole-blood transcriptomic data from critically ill CAP patients and non-CAP controls (GSE65682, Affymetrix U219 array) were analyzed. Differential expression was assessed using limma with Benjamini–Hochberg correction. Functional enrichment was evaluated through Gene Ontology, KEGG, and Gene Set Enrichment Analysis, with pathways categorized into innate and adaptive immune programs for comparative quantification.
+## Results
+Significant transcriptional changes distinguished CAP patients from controls. Upregulated genes were enriched for innate immune processes, such as antibacterial and lipopolysaccharide responses. Downregulated genes showed marked enrichment for adaptive immune functions, including T cell activation and antigen receptor signaling. GSEA confirmed broad suppression of adaptive pathways (18 of 20 significant pathways negatively enriched; mean NES = −1.62), whereas innate pathway changes were fewer and weaker in magnitude.
+## Conclusions
+Severe CAP is characterized by systemic suppression of adaptive immunity rather than isolated innate hyperactivation. This immune reprogramming aligns with immunoparalysis and may guide targeted immunomodulatory strategies in critical pneumonia.
+
+---
+
+# 1. Introduction
+Community-acquired pneumonia (CAP) remains one of the leading causes of hospitalization, critical illness, and mortality worldwide (Martin-Loeches et al., 2025). Despite advances in antimicrobial therapy and supportive care, severe CAP continues to carry substantial morbidity and mortality, particularly among patients requiring intensive care unit (ICU) admission (Martin-Loeches et al., 2025). While pathogen eradication is a primary therapeutic goal, disease severity is increasingly recognized as being driven not only by microbial burden but also by dysregulated host immune responses (Schuurman et al., 2022).
+The host immune response to infection is classically described as a biphasic process. The early phase is dominated by innate immune activation, characterized by rapid recognition of pathogen-associated molecular patterns (PAMPs) through pattern recognition receptors (PRRs), leading to activation of inflammatory cascades, cytokine production, and recruitment of effector cells (Schaefer et al., 2018). This response is essential for pathogen control. However, excessive or sustained innate activation can contribute to tissue damage and organ dysfunction (Sierawska et al., 2022).
+Concurrently, adaptive immune responses orchestrate antigen-specific immunity through T-cell and B-cell activation, differentiation, and clonal expansion (Adams et al., 2020). In severe infections, particularly in sepsis, accumulating evidence suggests that adaptive immunity may become suppressed, a phenomenon often referred to as immunoparalysis or immune exhaustion (Nakamori et al., 2021). This suppression has been associated with impaired lymphocyte function, reduced antigen presentation, and increased susceptibility to secondary infections (Roe, 2022). However, the relative contribution and magnitude of innate activation versus adaptive suppression in critically ill CAP remain incompletely characterized at the systems level.
+High-throughput transcriptomic profiling offers an opportunity to investigate immune reprogramming in a comprehensive and unbiased manner (Huang et al., 2021). Whole-blood gene expression analysis captures coordinated changes across immune pathways and allows integrative evaluation of inflammatory and adaptive programs simultaneously (Gerring et al., 2018). Previous studies have identified inflammatory signatures in severe infections, yet few have quantitatively assessed the balance between innate and adaptive immune pathway activity using enrichment-based approaches.
+In this study, we performed a genome-wide transcriptomic analysis of critically ill CAP patients using publicly available whole-blood expression data. We aimed to:
+1. Identify differentially expressed genes between CAP and non-CAP patients.
+2. Characterize enriched biological pathways using over-representation and gene set enrichment analyses.
+3. Quantitatively compare innate and adaptive immune pathway enrichment patterns.
+By integrating differential expression and systems-level enrichment analyses, we sought to determine whether severe CAP is primarily characterized by hyperinflammatory activation or by dominant suppression of adaptive immune programs.
+
+---
+
+# 2. Methods
+## 2.1 Study Design and Data Source
+This study utilized publicly available transcriptomic data from the Gene Expression Omnibus (GEO) under accession number GSE65682. The dataset comprises whole-blood gene expression profiles from critically ill patients, generated using the Affymetrix Human Genome U219 Array platform (GPL13667).
+For the present analysis, samples were stratified based on pneumonia diagnosis metadata. Patients diagnosed with community-acquired pneumonia (CAP) were compared to patients without CAP (No_CAP). All analyses were conducted in R (version 4.5.2), ensuring full computational reproducibility.
+
+## 2.2 Data Preprocessing and Quality Assessment
+Expression matrices were retrieved using the GEOquery package. Raw expression values were examined for distributional properties. Log2 transformation was applied when necessary based on quantile distribution thresholds.
+Quality control procedures included:
+- Boxplot visualization to assess inter-sample distribution consistency.
+- Density plots to evaluate global expression distribution.
+- Uniform Manifold Approximation and Projection (UMAP) for dimensionality reduction and exploratory assessment of sample clustering.
+Samples exhibiting comparable distributional patterns were retained for downstream analysis.
+
+## 2.3 Differential Gene Expression Analysis
+Differential expression analysis was performed using the limma package.
+The contrast of interest was defined as: CAP – No_CAP
+Linear models were fitted for each gene using lmFit, followed by empirical Bayes moderation via eBayes to stabilize variance estimates across genes. Multiple testing correction was applied using the Benjamini–Hochberg false discovery rate (FDR) method.
+Genes were considered differentially expressed if they met the following criteria:
+- Adjusted p-value < 0.05
+- Absolute log2 fold change (|log2FC|) ≥ 1
+
+## 2.4	Functional Enrichment Analysis
+## 2.4.1	Over-Representation Analysis (ORA)
+Significantly upregulated and downregulated genes were analyzed separately. Gene Ontology (GO) Biological Process and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analyses were conducted using hypergeometric testing. Adjusted p-values < 0.05 were considered statistically significant.
+## 2.4.2	Gene Set Enrichment Analysis (GSEA)
+To evaluate coordinated pathway-level changes independent of arbitrary fold-change thresholds, Gene Set Enrichment Analysis (GSEA) was performed using a ranked gene list based on moderated t-statistics derived from limma. KEGG pathway gene sets were used as reference. Normalized Enrichment Scores (NES) were calculated, and pathway significance was determined using FDR-adjusted p-values < 0.05. Positive NES values indicate enrichment in CAP samples, whereas negative NES values indicate enrichment in No_CAP samples.
+
+## 2.5	Immune Pathway Categorization and Quantitative Comparison
+Significant KEGG pathways identified via GSEA were manually categorized into:
+-	Adaptive immune pathways
+- Innate immune pathways
+- 	Other biological pathways
+Classification was based on established immunological function and pathway annotations.
+For each category, the following were evaluated:
+-	Number of significant pathways
+-	Direction of enrichment (NES > 0 or NES < 0)
+- Mean NES values
+This approach enabled quantitative comparison of the relative dominance of innate versus adaptive immune pathway activity.
+
+## 2.6	Data Visualization
+The following visualizations were generated:
+-	Volcano plots for differential gene expression.
+-	Heatmap of the top 50 differentially expressed genes.
+-	GO and KEGG enrichment dot plots.
+-	GSEA enrichment plots.
+-	UMAP projection of global transcriptomic structure.
+All figures were generated using ggplot2 and pheatmap packages.
+
+---
+
+# 3.	RESULT & INTERPRETATION
+## 3.1	Global Transcriptomic Alterations in Critically Ill CAP Patients
+To characterize transcriptional differences between critically ill CAP and No_CAP patients, we performed differential expression analysis using limma with FDR correction.   
+A total of 2,978 genes met the statistical significance threshold (adjusted p-value < 0.05). Applying a stringent fold-change cutoff (|log2FC| ≥ 1), 96 genes were identified as differentially expressed, comprising:
+-	54 upregulated genes
+-	42 downregulated genes
+The volcano plot (Figure 1) illustrates the distribution of differential expression, demonstrating a distinct subset of genes with large magnitude changes and strong statistical significance.
+Unsupervised visualization using UMAP (Figure 2) revealed partial separation between CAP and No_CAP groups, indicating coordinated but not globally segregated transcriptomic shifts. Boxplot and density analyses confirmed comparable expression distributions across samples (Supplementary Figure S1), supporting data quality and normalization adequacy.
+Heatmap visualization of the top 50 differentially expressed genes (Figure 3) demonstrated coherent clustering patterns, with CAP samples exhibiting coordinated expression changes distinct from No_CAP controls.
+Severe CAP induces structured transcriptional reprogramming rather than stochastic gene expression changes, suggesting coordinated biological pathway modulation.
+
+## 3.2	Over-Representation Analysis Reveals Innate Immune Activation
+To investigate biological processes associated with upregulated genes in CAP, Gene Ontology (GO) enrichment analysis was performed.
+Upregulated genes were significantly enriched for innate immune processes, including:
+-	Defense response to bacterium
+-	Cellular response to lipopolysaccharide
+-	Inflammatory response pathways
+These findings indicate activation of pathogen-recognition and antimicrobial defense programs in CAP patients.
+KEGG over-representation analysis of downregulated genes revealed enrichment in pathways associated with:
+-	Hematopoietic cell lineage
+-	Antigen processing and presentation
+-	T helper cell differentiation
+The enrichment of adaptive immune pathways among downregulated genes suggests potential suppression of antigen-specific immune programs in CAP.
+Over-representation analysis suggests a dual immune pattern: activation of innate antimicrobial programs alongside suppression of adaptive immune functions.
+
+## 3.3	Gene Set Enrichment Analysis Demonstrates Dominant Suppression of Adaptive Immune Pathways
+To evaluate coordinated pathway-level changes independent of arbitrary fold-change thresholds, we conducted Gene Set Enrichment Analysis (GSEA) using a ranked gene list derived from moderated statistics.
+Among significantly enriched KEGG pathways (FDR < 0.05), adaptive immune pathways predominated. Of 20 significant adaptive pathways:
+-	18 exhibited negative normalized enrichment scores (NES)
+-	Only 2 showed positive enrichment
+The mean NES for significant adaptive pathways was:
+NES = -1.62
+Key suppressed pathways included:
+-	Th1 and Th2 cell differentiation
+-	Th17 cell differentiation
+-	Intestinal immune network for IgA production
+-	Antigen processing and presentation
+In contrast, innate immune pathways were less frequently enriched and exhibited lower magnitude enrichment scores.
+Quantitative categorization revealed:
+-	20 significant adaptive pathways
+-	3 significant innate pathways
+-	33 additional pathways categorized as other biological processes
+Overall, 42 of 56 significant pathways exhibited negative NES values, indicating global suppression in CAP relative to No_CAP.
+GSEA confirms that adaptive immune suppression is not limited to isolated genes but represents a coordinated, system-wide transcriptional program in critically ill CAP patients. The magnitude and prevalence of negative enrichment among adaptive pathways substantially exceed those observed for innate pathways.
+
